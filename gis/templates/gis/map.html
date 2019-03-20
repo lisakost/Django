@@ -1,0 +1,40 @@
+{% extends 'gis/base.html' %}
+
+{% block title %}
+    ArcGis Online om localhost
+{% endblock %}
+
+{% block maphead %}
+
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+
+<script src="https://js.arcgis.com/4.10/"></script>
+
+<script>
+require([
+    "esri/Map",
+    "esri/views/MapView",
+    "esri/widgets/Home"
+], function(Map, MapView, Home){
+  var map = new Map({
+    basemap: "streets"
+  });
+  var view = new MapView({
+    container: "viewDiv",  // Reference to the scene div created in step 5
+    map: map,  // Reference to the map object created before the scene
+    zoom: 6,  // Sets zoom level based on level of detail (LOD)
+    center: [30.540364,50.445836]  // Sets center point of view using longitude,latitude
+  });
+  var homeBtn = new Home({
+      view: view
+  });
+    // Add the home button to the top left corner of the view
+    view.ui.add(homeBtn, "top-left");
+});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div id="viewDiv" style="height: 700px !important"></div>
+{% endblock %}

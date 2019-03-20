@@ -30,6 +30,10 @@ font-size: 3.5rem;
 </style>
 <!-- Custom styles for this template-->
 <link href="{% static 'gis/style.css' %}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    {% block maphead %} {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -44,7 +48,7 @@ font-size: 3.5rem;
 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
-<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Map</a>
+<a class="nav-link" href="{% url 'mymap' %}" >Map</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -66,9 +70,8 @@ font-size: 3.5rem;
 </nav>
 
 <main role="main" class="container margin_block">
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </main><!-- /.container -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
